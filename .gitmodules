@@ -1,0 +1,3 @@
+[submodule "subprojects/cppversus"]
+	path = subprojects/cppversus
+	url = https://github.com/Multiversus-Oceania/cppversus
