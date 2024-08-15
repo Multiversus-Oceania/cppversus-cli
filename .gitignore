@@ -1,2 +1,7 @@
 .vscode
 builddir
+
+subprojects/*/
+!subprojects/cppversus/
+
+setup_env.sh

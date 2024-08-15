@@ -8,6 +8,8 @@ project(
     ]
 )
 
+cppversus = dependency('cppversus')
+
 executable(
     'cli',
     sources: [
@@ -17,6 +19,8 @@ executable(
         include_directories('include')
     ],
     dependencies: [
-        dependency('cppversus')
+        cppversus,
+        dependency('cli11'),
+        dependency('spdlog')
     ]
 )
