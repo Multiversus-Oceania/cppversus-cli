@@ -1,5 +1,7 @@
 #include <CPPVersus.hpp>
 
+#include <CPPVersus-CLI.hpp>
+
 #include <CLI/CLI.hpp>
 #include <spdlog/spdlog.h>
 
@@ -20,37 +22,8 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    std::unique_ptr<CPPVersus::DokkenAPI> dokkenAPI;
-    try {
-        dokkenAPI = std::unique_ptr<CPPVersus::DokkenAPI>(new CPPVersus::DokkenAPI(apiKey));
-    }
-    catch(std::runtime_error const&) {
-        return 1;
-    }
-
-    std::optional<CPPVersus::PlayerInfo> playerInfoOpt = dokkenAPI->getPlayerInfo("6289bfe8213b6d574354d9fc");
-    if(!playerInfoOpt.has_value()) {
-        spdlog::warn("No player found.");
-        return 1;
-    }
-
-    CPPVersus::PlayerInfo playerInfo = playerInfoOpt.value();
-
-    spdlog::info("Player found.");
-
-    spdlog::info("ID: {}", playerInfo.id);
-    spdlog::info("publicID: {}", playerInfo.publicID);
-
-    spdlog::info("createdAt: {}", playerInfo.createdAt);
-    spdlog::info("updatedAt: {}", playerInfo.updatedAt);
-    spdlog::info("lastLogin: {}", playerInfo.lastLogin);
-
-    spdlog::info("username: {}", playerInfo.username);
-
-    spdlog::info("lastLoginPlatform: {}", (int)playerInfo.lastLoginPlatform);
-
-    spdlog::info("openBetaPlayer: {}", playerInfo.openBetaPlayer);
-    spdlog::info("profileIconPath: {}", playerInfo.profileIconPath);
+    CPPVersus::CLI cli(apiKey);
+    cli.run();
 
     return 0;
 }
