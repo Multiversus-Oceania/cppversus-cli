@@ -55,6 +55,21 @@ public:
 
         spdlog::info("openBetaPlayer: {}", playerInfo.openBetaPlayer);
         spdlog::info("profileIconPath: {}", playerInfo.profileIconPath);
+
+        spdlog::info("");
+        spdlog::info("---- Stats ----");
+
+        spdlog::info("highestDamageDealt: {}", playerInfo.stats.highestDamageDealt);
+        spdlog::info("totalDamage: {}", playerInfo.stats.totalDamage);
+        spdlog::info("totalRingoutLeader: {}", playerInfo.stats.totalRingoutLeader);
+        spdlog::info("totalRingouts: {}", playerInfo.stats.totalRingouts);
+        spdlog::info("totalWins: {}", playerInfo.stats.totalWins);
+        spdlog::info("totalAssists: {}", playerInfo.stats.totalAssists);
+        spdlog::info("totalAttacksDodged: {}", playerInfo.stats.totalAttacksDodged);
+        spdlog::info("totalDoubleRingouts: {}", playerInfo.stats.totalDoubleRingouts);
+        spdlog::info("totalMaxedCharacters: {}", playerInfo.stats.totalMaxedCharacters);
+
+        spdlog::info("---------------");
     }
 };
 
